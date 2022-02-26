@@ -79,21 +79,37 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		8443063827CA2857001882F4 /* ViewControllers */ = {
+		8443063927CA2869001882F4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8443063C27CA296D001882F4 /* ViewModels */,
+				8443063B27CA2965001882F4 /* Views */,
+				8443063A27CA294B001882F4 /* Models */,
+				8443063527CA281D001882F4 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8443063A27CA294B001882F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8443063B27CA2965001882F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8485BB7C27C8ED0B00D64014 /* ViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		8443063927CA2869001882F4 /* Sources */ = {
+		8443063C27CA296D001882F4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8443063527CA281D001882F4 /* App */,
-				8443063827CA2857001882F4 /* ViewControllers */,
 			);
-			path = Sources;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8485BB6C27C8ED0B00D64014 = {
@@ -117,8 +133,8 @@
 		8485BB7727C8ED0B00D64014 /* AlamofireProduct */ = {
 			isa = PBXGroup;
 			children = (
-				8443063927CA2869001882F4 /* Sources */,
 				8443063627CA2829001882F4 /* Resources */,
+				8443063927CA2869001882F4 /* Sources */,
 			);
 			path = AlamofireProduct;
 			sourceTree = "<group>";
