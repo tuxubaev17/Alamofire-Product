@@ -48,8 +48,52 @@
 				129AE1F34B00D0F188709269 /* Pods-AlamofireProduct.debug.xcconfig */,
 				0F224E4CA5C4509411533373 /* Pods-AlamofireProduct.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8443063527CA281D001882F4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8485BB7827C8ED0B00D64014 /* AppDelegate.swift */,
+				8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8443063627CA2829001882F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8485BB7E27C8ED0B00D64014 /* Main.storyboard */,
+				8485BB8127C8ED0C00D64014 /* Assets.xcassets */,
+				8485BB8327C8ED0C00D64014 /* LaunchScreen.storyboard */,
+				8443063727CA283D001882F4 /* Config */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8443063727CA283D001882F4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8485BB8627C8ED0C00D64014 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8443063827CA2857001882F4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8485BB7C27C8ED0B00D64014 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8443063927CA2869001882F4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8443063527CA281D001882F4 /* App */,
+				8443063827CA2857001882F4 /* ViewControllers */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		8485BB6C27C8ED0B00D64014 = {
@@ -73,13 +117,8 @@
 		8485BB7727C8ED0B00D64014 /* AlamofireProduct */ = {
 			isa = PBXGroup;
 			children = (
-				8485BB7827C8ED0B00D64014 /* AppDelegate.swift */,
-				8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */,
-				8485BB7C27C8ED0B00D64014 /* ViewController.swift */,
-				8485BB7E27C8ED0B00D64014 /* Main.storyboard */,
-				8485BB8127C8ED0C00D64014 /* Assets.xcassets */,
-				8485BB8327C8ED0C00D64014 /* LaunchScreen.storyboard */,
-				8485BB8627C8ED0C00D64014 /* Info.plist */,
+				8443063927CA2869001882F4 /* Sources */,
+				8443063627CA2829001882F4 /* Resources */,
 			);
 			path = AlamofireProduct;
 			sourceTree = "<group>";
