@@ -24,12 +24,12 @@ struct Card: Decodable {
     }
 
     init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-    
-            name = try container.decode(String.self, forKey: CodingKeys.name)
-            type = try container.decode(String.self, forKey: CodingKeys.type)
-            manaCost = try container.decode(String.self, forKey: CodingKeys.manaCost)
-            set = try container.decode(String.self, forKey: CodingKeys.set)
-            rarity = try container.decode(String.self, forKey: CodingKeys.rarity)
-        }
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        name = try container.decode(String.self, forKey: CodingKeys.name)
+        type = try container.decode(String.self, forKey: CodingKeys.type)
+        manaCost = try container.decode(String.self, forKey: CodingKeys.manaCost)
+        set = try container.decode(String.self, forKey: CodingKeys.set)
+        rarity = try container.decode(String.self, forKey: CodingKeys.rarity)
+    }
 }

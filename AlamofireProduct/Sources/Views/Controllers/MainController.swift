@@ -11,7 +11,9 @@ import SnapKit
 class MainController: UIViewController {
     
     let dataService = AlamofireNetworkRequest()
-    private var cards = [Cards]()
+    private var cards = [Card]()
+    
+    private let url = "https://api.magicthegathering.io/v1/cards"
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -32,7 +34,11 @@ class MainController: UIViewController {
         setupLayout()
         
         
-        dataService.sendRequst()
+        dataService.sendRequst(url: url) { card in
+            self.cards = card
+            self.tableView.reloadData()
+        }
+    
     }
     
     private func setupHierarchy() {
@@ -49,7 +55,6 @@ class MainController: UIViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(500)
         }
     }
 }
@@ -57,14 +62,14 @@ class MainController: UIViewController {
 extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier, for: indexPath) as! CardCell
+        let model = cards[indexPath.row]
         
-        cell.nameLabel.text = "Alikhan"
-        cell.typeLabel.text = "sdasdas"
+        cell.configureCell(model: model)
         return cell
     }
     

@@ -11,19 +11,18 @@ import Alamofire
 
 class AlamofireNetworkRequest {
     
-    func sendRequst() {
+    func sendRequst(url: String, completionHandler: @escaping ([Card]) -> ()) {
         
-//        let parameters: Parameters = [
-//                "name": "Black Lotus"
-//                ]
-        
-        guard let url = URL(string: "https://api.magicthegathering.io/v1/cards") else { return }
+        guard let url = URL(string: url) else { return }
         AF.request(url, method: .get).validate().responseDecodable(of: Cards.self ) { (responce) in
             switch responce.result {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let data):
-                print(data)
+                DispatchQueue.main.async {
+                    completionHandler(data.cards)
+                }
+                
             }
         }
     }
