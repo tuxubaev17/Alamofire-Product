@@ -6,14 +6,19 @@
 //
 
 import UIKit
-
+import SnapKit
 
 class MainController: UIViewController {
-
+    
+    let dataService = AlamofireNetworkRequest()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         title = "Таблица"
+        
+        dataService.sendRequst()
     }
 }
+
 
