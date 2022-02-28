@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8443064827CC989E001882F4 /* AlamofireNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443064727CC989E001882F4 /* AlamofireNetworkRequest.swift */; };
 		8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7827C8ED0B00D64014 /* AppDelegate.swift */; };
 		8485BB7B27C8ED0B00D64014 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */; };
 		8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7C27C8ED0B00D64014 /* MainController.swift */; };
@@ -19,6 +20,7 @@
 		0F224E4CA5C4509411533373 /* Pods-AlamofireProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireProduct.release.xcconfig"; path = "Target Support Files/Pods-AlamofireProduct/Pods-AlamofireProduct.release.xcconfig"; sourceTree = "<group>"; };
 		129AE1F34B00D0F188709269 /* Pods-AlamofireProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireProduct.debug.xcconfig"; path = "Target Support Files/Pods-AlamofireProduct/Pods-AlamofireProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		294B52CBB18E31F9D9BCE20D /* libPods-AlamofireProduct.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlamofireProduct.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8443064727CC989E001882F4 /* AlamofireNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkRequest.swift; sourceTree = "<group>"; };
 		8485BB7527C8ED0B00D64014 /* AlamofireProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8485BB7827C8ED0B00D64014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		8443063927CA2869001882F4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8443064627CC987C001882F4 /* Service */,
 				8443063527CA281D001882F4 /* App */,
 				8443063C27CA296D001882F4 /* ViewModels */,
 				8443063B27CA2965001882F4 /* Views */,
@@ -107,6 +110,14 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8443064627CC987C001882F4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8443064727CC989E001882F4 /* AlamofireNetworkRequest.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8485BB6C27C8ED0B00D64014 = {
@@ -243,6 +254,7 @@
 				8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */,
 				8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */,
 				8485BB7B27C8ED0B00D64014 /* SceneDelegate.swift in Sources */,
+				8443064827CC989E001882F4 /* AlamofireNetworkRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
