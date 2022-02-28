@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class CardCell: UITableViewCell {
+    
     static let identifier = "CardCell"
     
     lazy var nameLabel: UILabel = {
@@ -19,7 +20,7 @@ class CardCell: UITableViewCell {
         return label
     }()
     
-    lazy var typeLabel: UILabel = {
+    lazy var rareLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .left
@@ -40,7 +41,7 @@ class CardCell: UITableViewCell {
     }
     
     private func setupHierarchy() {
-        [nameLabel, typeLabel].forEach {
+        [nameLabel, rareLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -56,10 +57,15 @@ class CardCell: UITableViewCell {
             $0.bottom.equalToSuperview().offset(-10)
         }
         
-        typeLabel.snp.makeConstraints {
+        rareLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
             $0.bottom.equalToSuperview().offset(-10)
             $0.right.equalToSuperview().offset(-10)
         }
+    }
+    
+    func configureCell(model: Card) {
+        nameLabel.text = model.name
+        rareLabel.text = model.rarity
     }
 }
