@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7827C8ED0B00D64014 /* AppDelegate.swift */; };
-		8485BB7B27C8ED0B00D64014 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */; };
 		8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7C27C8ED0B00D64014 /* MainController.swift */; };
 		8485BB8227C8ED0C00D64014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8127C8ED0C00D64014 /* Assets.xcassets */; };
 		8485BB8527C8ED0C00D64014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8327C8ED0C00D64014 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		294B52CBB18E31F9D9BCE20D /* libPods-AlamofireProduct.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlamofireProduct.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8485BB7527C8ED0B00D64014 /* AlamofireProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8485BB7827C8ED0B00D64014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8485BB7C27C8ED0B00D64014 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		8485BB8127C8ED0C00D64014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8485BB8427C8ED0C00D64014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				8485BB7827C8ED0B00D64014 /* AppDelegate.swift */,
-				8485BB7A27C8ED0B00D64014 /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -242,7 +239,6 @@
 			files = (
 				8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */,
 				8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */,
-				8485BB7B27C8ED0B00D64014 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +382,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3AP5HUCPUK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AlamofireProduct/Info.plist;
+				INFOPLIST_FILE = AlamofireProduct/Resources/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -414,7 +410,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3AP5HUCPUK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AlamofireProduct/Info.plist;
+				INFOPLIST_FILE = AlamofireProduct/Resources/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
