@@ -13,12 +13,12 @@ class AlamofireNetworkRequest {
     
     func sendRequst() {
         
-        let parameters: Parameters = [
-                "name": "Black Lotus"
-                ]
+//        let parameters: Parameters = [
+//                "name": "Black Lotus"
+//                ]
         
         guard let url = URL(string: "https://api.magicthegathering.io/v1/cards") else { return }
-        AF.request(url, method: .get, parameters: parameters).validate().responseDecodable(of: Cards.self ) { (responce) in
+        AF.request(url, method: .get).validate().responseDecodable(of: Cards.self ) { (responce) in
             switch responce.result {
             case .failure(let error):
                 print(error.localizedDescription)
