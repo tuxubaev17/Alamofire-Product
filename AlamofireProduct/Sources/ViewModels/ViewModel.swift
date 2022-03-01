@@ -23,7 +23,7 @@ class ViewModel: TableViewModelType {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let data):
-                print(data)
+                print(data.cards)
                 DispatchQueue.main.async {
                     self.cards = data.cards
                     completionHandler()

@@ -26,6 +26,7 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = ViewModel()
         
         setupHierarchy()
@@ -77,6 +78,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         
         let detailVC = DetailController()
         detailVC.viewModel = viewModel.viewModelForSelectedRow()
+        
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

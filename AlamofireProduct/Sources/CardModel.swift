@@ -17,12 +17,13 @@ struct Card: Codable {
     let type: String
     let rarity: String
     let set: String
-//    let imageURL: String
+    let imageURL: String?
+    let text: String?
     
     enum CodingKeys: String, CodingKey {
-        case name, manaCost, type, rarity
+        case name, manaCost, type, rarity, text
         case set = "setName"
-//        case imageURL = "imageUrl"
+        case imageURL = "imageUrl"
     }
 
     init(from decoder: Decoder) throws {
@@ -33,6 +34,7 @@ struct Card: Codable {
         manaCost = try container.decode(String.self, forKey: CodingKeys.manaCost)
         set = try container.decode(String.self, forKey: CodingKeys.set)
         rarity = try container.decode(String.self, forKey: CodingKeys.rarity)
-//        imageURL = try container.decode(String.self, forKey: CodingKeys.imageURL)
+        imageURL = try? container.decode(String.self, forKey: CodingKeys.imageURL)
+        text = try? container.decode(String.self, forKey: CodingKeys.text)
     }
 }

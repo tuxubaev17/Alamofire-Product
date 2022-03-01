@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailViewModel: DetailViewModelType {
    
@@ -21,6 +22,15 @@ class DetailViewModel: DetailViewModelType {
     
     var set: String {
         return String(describing: "Set: \(card.set)")
+    }
+    
+    var text: String {
+        guard let text = card.text else { return "" }
+        return text
+    }
+    
+    var image: String {
+        return card.imageURL ?? ""
     }
     
     init(card: Card) {

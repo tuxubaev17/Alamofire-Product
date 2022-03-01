@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DetailViewModelType {
     var descriptionName: String { get }
     var descriptionType: String { get }
     var set: String { get }
+    var text: String { get }
+    var image: String { get }
 }
