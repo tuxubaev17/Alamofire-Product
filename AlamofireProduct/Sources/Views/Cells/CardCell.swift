@@ -8,25 +8,25 @@
 import UIKit
 import SnapKit
 
-class CardCell: UITableViewCell {
+private enum Constants {
+    static let numberOfLines = 1
+    static let sideOffsets = 10
+}
+
+final class CardCell: UITableViewCell {
     
     static let identifier = "CardCell"
     
-    lazy var nameLabel: UILabel = {
+    func createLabel() -> UILabel {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = Constants.numberOfLines
         label.textAlignment = .left
         label.lineBreakMode = .byClipping
         return label
-    }()
+    }
     
-    lazy var rareLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.textAlignment = .left
-        label.lineBreakMode = .byClipping
-        return label
-    }()
+    lazy var nameLabel = createLabel()
+    lazy var rareLabel = createLabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,15 +52,15 @@ class CardCell: UITableViewCell {
     
     private func setupLayout() {
         nameLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(10)
-            $0.top.equalToSuperview().offset(10)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.left.equalToSuperview().offset(Constants.sideOffsets)
+            $0.top.equalToSuperview().offset(Constants.sideOffsets)
+            $0.bottom.equalToSuperview().offset(-Constants.sideOffsets)
         }
         
         rareLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.bottom.equalToSuperview().offset(-10)
-            $0.right.equalToSuperview().offset(-10)
+            $0.top.equalToSuperview().offset(Constants.sideOffsets)
+            $0.bottom.equalToSuperview().offset(-Constants.sideOffsets)
+            $0.right.equalToSuperview().offset(-Constants.sideOffsets)
         }
     }
     

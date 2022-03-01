@@ -9,7 +9,15 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class DetailController: UIViewController {
+private enum Constants {
+    static let topOffsets = 15
+    static let sideOffsets = 10
+    static let textTopOffsets = 36
+    static let indicatorTopOffsets = 244
+    static let imageTopOffsets = 58
+}
+
+final class DetailController: UIViewController {
 
     var viewModel: DetailViewModelType?
     
@@ -69,40 +77,40 @@ class DetailController: UIViewController {
     private func setupUI() {
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(58)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(Constants.imageTopOffsets)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(350)
         }
         
         descriptioName.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.topOffsets)
+            make.left.equalToSuperview().offset(Constants.sideOffsets)
+            make.right.equalToSuperview().offset(-Constants.sideOffsets)
             make.centerX.equalToSuperview()
         }
         
         descriptionType.snp.makeConstraints { make in
-            make.top.equalTo(descriptioName.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(descriptioName.snp.bottom).offset(Constants.topOffsets)
+            make.left.equalToSuperview().offset(Constants.sideOffsets)
+            make.right.equalToSuperview().offset(-Constants.sideOffsets)
             make.centerX.equalToSuperview()
         }
         
         setLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionType.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(descriptionType.snp.bottom).offset(Constants.topOffsets)
+            make.left.equalToSuperview().offset(Constants.sideOffsets)
+            make.right.equalToSuperview().offset(-Constants.sideOffsets)
             make.centerX.equalToSuperview()
         }
         
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(setLabel.snp.bottom).offset(36)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(setLabel.snp.bottom).offset(Constants.textTopOffsets)
+            make.left.equalToSuperview().offset(Constants.sideOffsets)
+            make.right.equalToSuperview().offset(-Constants.sideOffsets)
         }
         
         activityIndicator.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(244)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(Constants.indicatorTopOffsets)
             make.centerX.equalToSuperview()
 
         }
