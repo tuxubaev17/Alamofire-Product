@@ -10,7 +10,7 @@ import SnapKit
 
 class MainController: UIViewController {
     
-    var viewModel = ViewModel()
+    var viewModel: TableViewModelType?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -26,7 +26,8 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        viewModel = ViewModel()
+        
         setupHierarchy()
         setupView()
         setupLayout()
@@ -37,7 +38,7 @@ class MainController: UIViewController {
     
     private func completionEvent() {
         
-        viewModel.sendRequst { [weak self] in
+        viewModel?.sendRequst { [weak self] in
             self?.tableView.reloadData()
         }
     }
@@ -63,13 +64,20 @@ class MainController: UIViewController {
 extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection()
+        return viewModel?.numberOfRowsInSection() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.titleForCell(atIndexPath: indexPath, tableView: tableView)
+        return viewModel?.titleForCell(atIndexPath: indexPath, tableView: tableView) ?? UITableViewCell()
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel else { return }
+        viewModel.selectRow(atIndexPath: indexPath)
+        
+        let detailVC = DetailController()
+        detailVC.viewModel = viewModel.viewModelForSelectedRow()
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
