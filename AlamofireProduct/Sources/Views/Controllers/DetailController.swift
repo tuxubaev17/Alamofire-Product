@@ -13,50 +13,44 @@ class DetailController: UIViewController {
 
     var viewModel: DetailViewModelType?
     
-    private lazy var imageView: UIImageView = {
-        let image = UIImageView()
-        return image
-    }()
-    
-    private lazy var descriptioName: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.lineBreakMode = .byClipping
-        return label
-    }()
-    
-    private lazy var descriptionType: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.lineBreakMode = .byClipping
-        return label
-    }()
-    
-    private lazy var setLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.lineBreakMode = .byClipping
-        return label
-    }()
-    
-    private lazy var textLabel: UILabel = {
+    func createLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
         label.lineBreakMode = .byClipping
         return label
+    }
+    
+    private lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        return image
     }()
+    
+    private var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+
+        return activityIndicator
+    }()
+    
+    private lazy var descriptioName = createLabel()
+    private lazy var descriptionType = createLabel()
+    private lazy var setLabel = createLabel()
+    private lazy var textLabel = createLabel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+        guard let viewModel = viewModel else { return }
 
-        configure()
-
+        configure(viewModel: viewModel)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         setupHierarchy()
         setupView()
         setupUI()
@@ -67,12 +61,13 @@ class DetailController: UIViewController {
     }
     
     private func setupHierarchy() {
-        [descriptioName, descriptionType, setLabel, textLabel, imageView].forEach {
+        [descriptioName, descriptionType, setLabel, textLabel, imageView, activityIndicator].forEach {
             view.addSubview($0)
         }
     }
     
     private func setupUI() {
+        
         imageView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(58)
             make.centerX.equalToSuperview()
@@ -105,17 +100,26 @@ class DetailController: UIViewController {
             make.left.equalToSuperview().offset(10)
             make.right.equalToSuperview().offset(-10)
         }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(244)
+            make.centerX.equalToSuperview()
+
+        }
     }
     
-    func configure() {
-        guard let viewModel = viewModel else { return }
+    func configure(viewModel: DetailViewModelType) {
         
-        DispatchQueue.main.async { [unowned self] in
-            self.descriptioName.text = viewModel.descriptionName
-            self.descriptionType.text = viewModel.descriptionType
-            self.setLabel.text = viewModel.set
-            self.textLabel.text = viewModel.text
-            self.imageView.kf.setImage(with: URL(string: viewModel.image)) 
+        self.descriptioName.text = viewModel.descriptionName
+        self.descriptionType.text = viewModel.descriptionType
+        self.setLabel.text = viewModel.set
+        self.textLabel.text = viewModel.text
+       
+        DispatchQueue.main.async {
+            guard let imageUrl = URL(string: viewModel.image), let data = try? Data(contentsOf: imageUrl) else { return }
+            self.imageView.image = UIImage(data: data)
+            self.activityIndicator.stopAnimating()
+        
         }
     }
 }

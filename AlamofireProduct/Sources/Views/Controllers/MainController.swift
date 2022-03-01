@@ -38,8 +38,7 @@ class MainController: UIViewController {
     }
     
     private func completionEvent() {
-        
-        viewModel?.sendRequst { [weak self] in
+        viewModel?.fetchData { [weak self] in
             self?.tableView.reloadData()
         }
     }

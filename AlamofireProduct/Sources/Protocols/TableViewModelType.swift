@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewModelType {
-    func sendRequst(completionHandler: @escaping () -> (Void))
+    func fetchData(completionHandler: @escaping () -> (Void))
     func numberOfRowsInSection() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
