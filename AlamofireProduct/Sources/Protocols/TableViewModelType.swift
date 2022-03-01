@@ -12,4 +12,7 @@ protocol TableViewModelType {
     func numberOfRowsInSection() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
+    
+    func viewModelForSelectedRow() -> DetailViewModelType?
+    func selectRow(atIndexPath indexPath: IndexPath)
 }

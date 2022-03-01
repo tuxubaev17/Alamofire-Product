@@ -7,20 +7,23 @@
 
 import Foundation
 
-struct Cards: Decodable {
+struct Cards: Codable {
     let cards: [Card]
 }
 
-struct Card: Decodable {
+struct Card: Codable {
     let name: String
     let manaCost: String
     let type: String
     let rarity: String
     let set: String
-
+    let imageURL: String?
+    let text: String?
+    
     enum CodingKeys: String, CodingKey {
-        case name, manaCost, type, rarity
+        case name, manaCost, type, rarity, text
         case set = "setName"
+        case imageURL = "imageUrl"
     }
 
     init(from decoder: Decoder) throws {
@@ -31,5 +34,7 @@ struct Card: Decodable {
         manaCost = try container.decode(String.self, forKey: CodingKeys.manaCost)
         set = try container.decode(String.self, forKey: CodingKeys.set)
         rarity = try container.decode(String.self, forKey: CodingKeys.rarity)
+        imageURL = try? container.decode(String.self, forKey: CodingKeys.imageURL)
+        text = try? container.decode(String.self, forKey: CodingKeys.text)
     }
 }

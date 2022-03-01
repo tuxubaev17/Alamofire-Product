@@ -13,6 +13,9 @@
 		8483CB7227CDDDB3001C179D /* TableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7127CDDDB3001C179D /* TableViewModelType.swift */; };
 		8483CB7427CDDE82001C179D /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7327CDDE82001C179D /* TableViewCellViewModelType.swift */; };
 		8483CB7627CDE01A001C179D /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7527CDE01A001C179D /* TableViewCellViewModel.swift */; };
+		8483CB7827CDE468001C179D /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7727CDE468001C179D /* DetailController.swift */; };
+		8483CB7A27CDE5C7001C179D /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7927CDE5C7001C179D /* DetailViewModelType.swift */; };
+		8483CB7C27CDE75A001C179D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7B27CDE75A001C179D /* DetailViewModel.swift */; };
 		8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7827C8ED0B00D64014 /* AppDelegate.swift */; };
 		8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7C27C8ED0B00D64014 /* MainController.swift */; };
 		8485BB8227C8ED0C00D64014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8127C8ED0C00D64014 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 		8483CB7127CDDDB3001C179D /* TableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelType.swift; sourceTree = "<group>"; };
 		8483CB7327CDDE82001C179D /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 		8483CB7527CDE01A001C179D /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		8483CB7727CDE468001C179D /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		8483CB7927CDE5C7001C179D /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
+		8483CB7B27CDE75A001C179D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8485BB7527C8ED0B00D64014 /* AlamofireProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8485BB7827C8ED0B00D64014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8485BB7C27C8ED0B00D64014 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 			children = (
 				8443065827CD1CA2001882F4 /* ViewModel.swift */,
 				8483CB7527CDE01A001C179D /* TableViewCellViewModel.swift */,
+				8483CB7B27CDE75A001C179D /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8485BB7C27C8ED0B00D64014 /* MainController.swift */,
+				8483CB7727CDE468001C179D /* DetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 			children = (
 				8483CB7127CDDDB3001C179D /* TableViewModelType.swift */,
 				8483CB7327CDDE82001C179D /* TableViewCellViewModelType.swift */,
+				8483CB7927CDE5C7001C179D /* DetailViewModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -282,10 +291,13 @@
 				8483CB7427CDDE82001C179D /* TableViewCellViewModelType.swift in Sources */,
 				8443065727CCD8FA001882F4 /* CardCell.swift in Sources */,
 				8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */,
+				8483CB7A27CDE5C7001C179D /* DetailViewModelType.swift in Sources */,
 				8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */,
 				8443065027CCBD1D001882F4 /* CardModel.swift in Sources */,
 				8443065927CD1CA2001882F4 /* ViewModel.swift in Sources */,
 				8483CB7627CDE01A001C179D /* TableViewCellViewModel.swift in Sources */,
+				8483CB7827CDE468001C179D /* DetailController.swift in Sources */,
+				8483CB7C27CDE75A001C179D /* DetailViewModel.swift in Sources */,
 				8483CB7227CDDDB3001C179D /* TableViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

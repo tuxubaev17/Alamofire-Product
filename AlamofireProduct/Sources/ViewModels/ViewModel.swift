@@ -12,6 +12,8 @@ private let url = "https://api.magicthegathering.io/v1/cards"
 
 class ViewModel: TableViewModelType {
     
+    private var selectedIndexPath: IndexPath?
+    
     var cards = [Card]()
     
     func sendRequst(completionHandler: @escaping () -> (Void)) {
@@ -46,8 +48,19 @@ class ViewModel: TableViewModelType {
         cell.viewModel = cellViewModel
         
         return cell
-
+    }
+    
+    func viewModelForSelectedRow() -> DetailViewModelType? {
+        guard let selectedIndexPath = selectedIndexPath else { return nil}
+        let card = cards[selectedIndexPath.row]
+        
+        return DetailViewModel(card: card)
 
     }
+    
+    func selectRow(atIndexPath indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
+    }
+    
     
 }
