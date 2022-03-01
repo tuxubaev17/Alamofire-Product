@@ -16,6 +16,7 @@
 		8483CB7A27CDE5C7001C179D /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7927CDE5C7001C179D /* DetailViewModelType.swift */; };
 		8483CB7C27CDE75A001C179D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7B27CDE75A001C179D /* DetailViewModel.swift */; };
 		8483CB7F27CE594B001C179D /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7E27CE594B001C179D /* CardModel.swift */; };
+		8483CB8227CE73FE001C179D /* AlamofireNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB8127CE73FE001C179D /* AlamofireNetworkRequest.swift */; };
 		8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7827C8ED0B00D64014 /* AppDelegate.swift */; };
 		8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7C27C8ED0B00D64014 /* MainController.swift */; };
 		8485BB8227C8ED0C00D64014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8127C8ED0C00D64014 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		8483CB7927CDE5C7001C179D /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
 		8483CB7B27CDE75A001C179D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8483CB7E27CE594B001C179D /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		8483CB8127CE73FE001C179D /* AlamofireNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkRequest.swift; sourceTree = "<group>"; };
 		8485BB7527C8ED0B00D64014 /* AlamofireProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8485BB7827C8ED0B00D64014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8485BB7C27C8ED0B00D64014 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		8443063927CA2869001882F4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8483CB8027CE73C9001C179D /* Network */,
 				8483CB7D27CE58B0001C179D /* Models */,
 				8443063527CA281D001882F4 /* App */,
 				8483CB7027CDDD96001C179D /* Protocols */,
@@ -155,6 +158,14 @@
 				8483CB7E27CE594B001C179D /* CardModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8483CB8027CE73C9001C179D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8483CB8127CE73FE001C179D /* AlamofireNetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		8485BB6C27C8ED0B00D64014 = {
@@ -291,6 +302,7 @@
 				8483CB7427CDDE82001C179D /* TableViewCellViewModelType.swift in Sources */,
 				8483CB7F27CE594B001C179D /* CardModel.swift in Sources */,
 				8443065727CCD8FA001882F4 /* CardCell.swift in Sources */,
+				8483CB8227CE73FE001C179D /* AlamofireNetworkRequest.swift in Sources */,
 				8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */,
 				8483CB7A27CDE5C7001C179D /* DetailViewModelType.swift in Sources */,
 				8485BB7927C8ED0B00D64014 /* AppDelegate.swift in Sources */,
