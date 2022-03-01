@@ -64,8 +64,11 @@ class CardCell: UITableViewCell {
         }
     }
     
-    func configureCell(model: Card) {
-        nameLabel.text = model.name
-        rareLabel.text = model.rarity
+    var viewModel: TableViewCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            nameLabel.text = viewModel.name
+            rareLabel.text = viewModel.rarity
+        }
     }
 }

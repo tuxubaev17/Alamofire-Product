@@ -10,12 +10,9 @@ import SnapKit
 
 class MainController: UIViewController {
     
-    let dataService = AlamofireNetworkRequest()
-    private var cards = [Card]()
+    var viewModel = ViewModel()
     
-    private let url = "https://api.magicthegathering.io/v1/cards"
-    
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.rowHeight = 55
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
@@ -29,16 +26,20 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         setupHierarchy()
         setupView()
         setupLayout()
         
-        
-        dataService.sendRequst(url: url) { card in
-            self.cards = card
-            self.tableView.reloadData()
-        }
+        completionEvent()
     
+    }
+    
+    private func completionEvent() {
+        
+        viewModel.sendRequst { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     private func setupHierarchy() {
@@ -62,15 +63,11 @@ class MainController: UIViewController {
 extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier, for: indexPath) as! CardCell
-        let model = cards[indexPath.row]
-        
-        cell.configureCell(model: model)
-        return cell
+        return viewModel.titleForCell(atIndexPath: indexPath, tableView: tableView)
     }
     
     

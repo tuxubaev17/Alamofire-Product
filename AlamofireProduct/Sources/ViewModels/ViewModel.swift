@@ -5,34 +5,48 @@
 //  Created by Admin on 28.02.2022.
 //
 
-import Foundation
 import UIKit
-// Этот класс пока не работает,  но это пример 
+import Alamofire
+
 private let url = "https://api.magicthegathering.io/v1/cards"
 
-class ViewModel {
+class ViewModel: TableViewModelType {
     
-    let dataService = AlamofireNetworkRequest()
-    private var cards = [Card]()
+    var cards = [Card]()
     
-    func fetchData(completionHandler: @escaping () -> (Void)) {
-        dataService.sendRequst(url: url) { card in
-            self.cards = card
-            completionHandler()
+    func sendRequst(completionHandler: @escaping () -> (Void)) {
+        guard let url = URL(string: url) else { return }
+        AF.request(url, method: .get).validate().responseDecodable(of: Cards.self ) { (responce) in
+            switch responce.result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let data):
+                print(data.cards)
+                DispatchQueue.main.async {
+                    self.cards = data.cards
+                    completionHandler()
+                }
+            }
         }
     }
     
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
+        let card = cards[indexPath.row]
+        return TableViewCellViewModel(card: card)
+    }
+
     func numberOfRowsInSection() -> Int {
         return cards.count
     }
-    
+
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier, for: indexPath) as? CardCell
-    
-        cell?.configureCell(model: cards[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier, for: indexPath) as? CardCell else { return UITableViewCell() }
         
-        return cell ?? UITableViewCell()
+        let cellViewModel = cellViewModel(forIndexPath: indexPath)
+        cell.viewModel = cellViewModel
         
+        return cell
+
 
     }
     
