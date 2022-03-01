@@ -115,7 +115,7 @@ class DetailController: UIViewController {
             self.descriptionType.text = viewModel.descriptionType
             self.setLabel.text = viewModel.set
             self.textLabel.text = viewModel.text
-            self.imageView.kf.setImage(with: URL(string: viewModel.image)) // Добавить индикатор
+            self.imageView.kf.setImage(with: URL(string: viewModel.image)) 
         }
     }
 }

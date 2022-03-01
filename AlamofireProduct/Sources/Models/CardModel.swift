@@ -2,7 +2,7 @@
 //  CardModel.swift
 //  AlamofireProduct
 //
-//  Created by Admin on 28.02.2022.
+//  Created by Admin on 01.03.2022.
 //
 
 import Foundation
