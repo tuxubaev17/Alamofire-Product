@@ -107,9 +107,5 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension MainController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel?.updateSearchResults(for: searchController, searchText: searchText) {
-            self.tableView.reloadData()
-        }
-    }
+ 
 }

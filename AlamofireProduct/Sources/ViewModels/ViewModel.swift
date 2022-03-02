@@ -23,8 +23,9 @@ class ViewModel: TableViewModelType {
     
     func fetchData(completionHandler: @escaping () -> (Void)) {
         network.sendRequst(url: url) { card in
+            self.cards = card
+            print(card)
             DispatchQueue.main.async {
-                self.cards = card
                 completionHandler()
             }
         }
@@ -56,23 +57,5 @@ class ViewModel: TableViewModelType {
     
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
-    }
-    
-    func updateSearchResults(for searchController: UISearchController, searchText: String, completionHandler: @escaping () -> (Void)) {
-        if searchText == " " {
-            network.sendRequst(url: url) { card in
-                self.cards = card
-                DispatchQueue.main.async {
-                    completionHandler()
-                }
-            }
-        } else {
-            if searchController.searchBar.selectedScopeButtonIndex == 0 {
-                cards = cards.filter { (card) -> Bool in
-                    return (card.name.lowercased().contains(searchText.lowercased()))
-                }
-            }
-        }
-        completionHandler()
     }
 }

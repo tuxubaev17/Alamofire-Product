@@ -9,12 +9,11 @@ import UIKit
 
 protocol TableViewModelType {
     func fetchData(completionHandler: @escaping () -> (Void))
+    
     func numberOfRowsInSection() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
     
     func viewModelForSelectedRow(forIndexPath indexPath: IndexPath) -> DetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
-    
-    func updateSearchResults(for searchController: UISearchController, searchText: String, completionHandler: @escaping () -> (Void))
 }
