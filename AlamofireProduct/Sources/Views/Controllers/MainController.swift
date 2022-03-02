@@ -8,13 +8,17 @@
 import UIKit
 import SnapKit
 
-class MainController: UIViewController {
+private enum Constants {
+    static let rowHeight = CGFloat(55)
+}
+
+final class MainController: UIViewController {
     
     var viewModel: TableViewModelType?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.rowHeight = 55
+        tableView.rowHeight = Constants.rowHeight
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
         tableView.backgroundColor = .white
 

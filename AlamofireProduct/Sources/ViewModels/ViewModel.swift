@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+
+
 private let url = "https://api.magicthegathering.io/v1/cards"
 
 class ViewModel: TableViewModelType {
