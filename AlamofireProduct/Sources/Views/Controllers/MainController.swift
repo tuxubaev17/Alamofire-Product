@@ -16,6 +16,8 @@ final class MainController: UIViewController {
     
     var viewModel: TableViewModelType?
     
+    private var searchController = UISearchController(searchResultsController: nil)
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.rowHeight = Constants.rowHeight
@@ -26,6 +28,23 @@ final class MainController: UIViewController {
         tableView.delegate = self
         
         return tableView
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+
+        tableView.tableHeaderView = searchController.searchBar
+        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.backgroundColor = .white
+        
+        searchBar.placeholder = "Поиск...."
+        searchBar.searchBarStyle = .default
+        searchController.dimsBackgroundDuringPresentation = false
+        searchBar.autocorrectionType = .no
+        searchBar.delegate = self
+        definesPresentationContext = true
+        
+        return searchBar
     }()
     
     override func viewDidLoad() {
@@ -49,6 +68,7 @@ final class MainController: UIViewController {
     
     private func setupHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(searchBar)
     }
     
     private func setupView() {
@@ -86,3 +106,6 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension MainController: UISearchBarDelegate {
+    
+}
