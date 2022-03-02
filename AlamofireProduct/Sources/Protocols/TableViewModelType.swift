@@ -13,6 +13,8 @@ protocol TableViewModelType {
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
     
-    func viewModelForSelectedRow() -> DetailViewModelType?
+    func viewModelForSelectedRow(forIndexPath indexPath: IndexPath) -> DetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
+    
+    func updateSearchResults(for searchController: UISearchController, searchText: String, completionHandler: @escaping () -> (Void))
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import CoreAudio
 
 
 
@@ -17,6 +18,7 @@ class ViewModel: TableViewModelType {
     private var selectedIndexPath: IndexPath?
     private var network = AlamofireNetworkRequest()
     
+    var filteredArray = [String]()
     var cards = [Card]()
     
     func fetchData(completionHandler: @escaping () -> (Void)) {
@@ -46,17 +48,31 @@ class ViewModel: TableViewModelType {
         return cell
     }
     
-    func viewModelForSelectedRow() -> DetailViewModelType? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil}
-        let card = cards[selectedIndexPath.row]
+    func viewModelForSelectedRow(forIndexPath indexPath: IndexPath) -> DetailViewModelType? {
+        let card = cards[indexPath.row]
         
         return DetailViewModel(card: card)
-
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
     }
     
-    
+    func updateSearchResults(for searchController: UISearchController, searchText: String, completionHandler: @escaping () -> (Void)) {
+        if searchText == " " {
+            network.sendRequst(url: url) { card in
+                self.cards = card
+                DispatchQueue.main.async {
+                    completionHandler()
+                }
+            }
+        } else {
+            if searchController.searchBar.selectedScopeButtonIndex == 0 {
+                cards = cards.filter { (card) -> Bool in
+                    return (card.name.lowercased().contains(searchText.lowercased()))
+                }
+            }
+        }
+        completionHandler()
+    }
 }

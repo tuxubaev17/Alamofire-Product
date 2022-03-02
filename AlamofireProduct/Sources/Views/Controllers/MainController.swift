@@ -100,12 +100,16 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         viewModel.selectRow(atIndexPath: indexPath)
         
         let detailVC = DetailController()
-        detailVC.viewModel = viewModel.viewModelForSelectedRow()
+        detailVC.viewModel = viewModel.viewModelForSelectedRow(forIndexPath: indexPath)
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
 extension MainController: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel?.updateSearchResults(for: searchController, searchText: searchText) {
+            self.tableView.reloadData()
+        }
+    }
 }
