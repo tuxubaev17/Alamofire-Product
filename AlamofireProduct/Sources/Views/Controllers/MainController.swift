@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 private enum Constants {
     static let rowHeight = CGFloat(55)
@@ -16,9 +17,9 @@ final class MainController: UIViewController {
     
     var viewModel: TableViewModelType?
     
-    private var searchController = UISearchController(searchResultsController: nil)
+    var searchController = UISearchController(searchResultsController: nil)
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.rowHeight = Constants.rowHeight
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
@@ -30,34 +31,28 @@ final class MainController: UIViewController {
         return tableView
     }()
     
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-
-        tableView.tableHeaderView = searchController.searchBar
-        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.backgroundColor = .white
-        
-        searchBar.placeholder = "Поиск...."
-        searchBar.searchBarStyle = .default
-        searchController.dimsBackgroundDuringPresentation = false
-        searchBar.autocorrectionType = .no
-        searchBar.delegate = self
-        definesPresentationContext = true
-        
-        return searchBar
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = ViewModel()
+        viewModel = TableViewModel()
         
         setupHierarchy()
         setupView()
         setupLayout()
         
+        searchConfigure()
         completionEvent()
+    }
     
+    private func searchConfigure() {
+        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.backgroundColor = .white
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск..."
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
     }
     
     private func completionEvent() {
@@ -68,18 +63,17 @@ final class MainController: UIViewController {
     
     private func setupHierarchy() {
         view.addSubview(tableView)
-        view.addSubview(searchBar)
     }
     
     private func setupView() {
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
         title = "Таблица"
     }
     
     private func setupLayout() {
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
     }
@@ -88,6 +82,7 @@ final class MainController: UIViewController {
 extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return viewModel?.numberOfRowsInSection() ?? 0
     }
     
@@ -102,10 +97,16 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
         let detailVC = DetailController()
         detailVC.viewModel = viewModel.viewModelForSelectedRow(forIndexPath: indexPath)
         
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
-extension MainController: UISearchBarDelegate {
- 
+extension MainController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        viewModel?.filterContentForSearchText(text)
+        tableView.reloadData()
+    }
 }
+

@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
 private enum Constants {
     static let topOffsets = 15

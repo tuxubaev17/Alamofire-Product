@@ -64,7 +64,7 @@ final class CardCell: UITableViewCell {
         }
     }
     
-    var viewModel: TableViewCellViewModelType? {
+    var configure: TableViewCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
             nameLabel.text = viewModel.name
