@@ -9,10 +9,13 @@ import UIKit
 
 protocol TableViewModelType {
     func fetchData(completionHandler: @escaping () -> (Void))
+    
+    func filterContentForSearchText(_ searchText: String)
+    
     func numberOfRowsInSection() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
     func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
     
-    func viewModelForSelectedRow() -> DetailViewModelType?
+    func viewModelForSelectedRow(forIndexPath indexPath: IndexPath) -> DetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
 }

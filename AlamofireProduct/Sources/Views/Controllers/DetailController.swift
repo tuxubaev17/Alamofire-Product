@@ -7,17 +7,16 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
 private enum Constants {
     static let topOffsets = 15
     static let sideOffsets = 10
-    static let textTopOffsets = 36
+    static let textTopOffsets = 30
     static let indicatorTopOffsets = 244
     static let imageTopOffsets = 58
 }
 
-final class DetailController: UIViewController {
+final class DetailController: UIViewController, UISearchBarDelegate {
 
     var viewModel: DetailViewModelType?
     
@@ -112,7 +111,6 @@ final class DetailController: UIViewController {
         activityIndicator.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(Constants.indicatorTopOffsets)
             make.centerX.equalToSuperview()
-
         }
     }
     
@@ -131,4 +129,5 @@ final class DetailController: UIViewController {
         }
     }
 }
+
 
