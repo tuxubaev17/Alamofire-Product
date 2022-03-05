@@ -31,6 +31,12 @@ final class MainController: UIViewController {
         return tableView
     }()
     
+    private lazy var emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Список пуст"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +55,24 @@ final class MainController: UIViewController {
         textFieldInsideSearchBar?.backgroundColor = .white
         
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск..."
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
+    }
+    
+    private func setupEmptyView() {
+        
+        if tableView.visibleCells.isEmpty {
+            emptyLabel.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
+            }
+            emptyLabel.isHidden = false
+        } else {
+            emptyLabel.isHidden = true
+        }
     }
     
     private func completionEvent() {
@@ -63,6 +83,7 @@ final class MainController: UIViewController {
     
     private func setupHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(emptyLabel)
     }
     
     private func setupView() {
@@ -105,8 +126,16 @@ extension MainController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        viewModel?.filterContentForSearchText(text)
-        tableView.reloadData()
+        viewModel?.filterContentForSearchText(text) {
+            self.tableView.reloadData()
+        }
     }
 }
 
+
+extension MainController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        tableView.reloadData()
+        setupEmptyView()
+    }
+}

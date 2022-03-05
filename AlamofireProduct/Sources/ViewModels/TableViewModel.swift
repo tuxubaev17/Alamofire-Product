@@ -14,7 +14,6 @@ private let url = "https://api.magicthegathering.io/v1/cards"
 
 class TableViewModel: TableViewModelType {
     
-    private var mainController = MainController()
     private var networkManager = AlamofireNetworkRequest()
     
     private var selectedIndexPath: IndexPath?
@@ -34,11 +33,14 @@ class TableViewModel: TableViewModelType {
         }
     }
     
-    func filterContentForSearchText(_ searchText: String) {
+    func filterContentForSearchText(_ searchText: String, completionHandler: @escaping () -> (Void)) {
         filteredCardsName = cards.filter { (cards: Card) -> Bool in
             return cards.name.lowercased().contains(searchText.lowercased())
         }
-        isFiltering = searchText.isEmpty == true ? false : true
+        isFiltering = searchText.isEmpty == false ? true : false
+        DispatchQueue.main.async {
+            completionHandler()
+        }
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
