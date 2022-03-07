@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Alamofire
 
 private enum Constants {
     static let rowHeight = CGFloat(55)
@@ -131,7 +130,6 @@ extension MainController: UISearchResultsUpdating {
         }
     }
 }
-
 
 extension MainController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

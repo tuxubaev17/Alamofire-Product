@@ -7,8 +7,6 @@
 
 import UIKit
 import Alamofire
-import CoreAudio
-import SwiftUI
 
 private let url = "https://api.magicthegathering.io/v1/cards"
 
@@ -16,11 +14,11 @@ class TableViewModel: TableViewModelType {
     
     private var networkManager = AlamofireNetworkRequest()
     
-    private var selectedIndexPath: IndexPath?
-
     private var cards = [Card]()
     private var filteredCardsName = [Card]()
     
+    private var selectedIndexPath: IndexPath?
+
     private var isFiltering: Bool = false
     
     func fetchData(completionHandler: @escaping () -> (Void)) {
