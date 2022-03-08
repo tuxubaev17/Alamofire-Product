@@ -135,7 +135,7 @@ extension MainController: UISearchResultsUpdating {
 
 extension MainController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        tableView.reloadData()
         setupEmptyView()
+        tableView.reloadData()
     }
 }
