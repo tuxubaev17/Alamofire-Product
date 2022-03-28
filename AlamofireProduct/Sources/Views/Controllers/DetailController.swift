@@ -115,7 +115,6 @@ final class DetailController: UIViewController, UISearchBarDelegate {
     }
     
     func configure(viewModel: DetailViewModelType) {
-        
         self.descriptioName.text = viewModel.descriptionName
         self.descriptionType.text = viewModel.descriptionType
         self.setLabel.text = viewModel.set

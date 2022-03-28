@@ -8,14 +8,16 @@
 import UIKit
 import SnapKit
 
+typealias CardCellConfig = TableCellConfigurator<CardCell, CardCellModel>
+
 private enum Constants {
     static let numberOfLines = 1
     static let sideOffsets = 10
 }
 
 final class CardCell: UITableViewCell {
-    
-    static let identifier = "CardCell"
+        
+//    static let identifier = "CardCell"
     
     func createLabel() -> UILabel {
         let label = UILabel()
@@ -63,12 +65,11 @@ final class CardCell: UITableViewCell {
             $0.right.equalToSuperview().offset(-Constants.sideOffsets)
         }
     }
-    
-    var configure: TableViewCellViewModelType? {
-        willSet(viewModel) {
-            guard let viewModel = viewModel else { return }
-            nameLabel.text = viewModel.name
-            rareLabel.text = viewModel.rarity
-        }
+}
+
+extension CardCell: ConfigurableCell {
+    func configure(data: CardCellModel) {
+        nameLabel.attributedText = data.titleLabel
+        rareLabel.attributedText = data.rarityLabel
     }
 }

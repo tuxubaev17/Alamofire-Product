@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842DD32427E4524C0098D71A /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DD32327E4524C0098D71A /* CellConfigurator.swift */; };
 		8443065727CCD8FA001882F4 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443065627CCD8FA001882F4 /* CardCell.swift */; };
 		8443065927CD1CA2001882F4 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443065827CD1CA2001882F4 /* TableViewModel.swift */; };
 		8483CB7227CDDDB3001C179D /* TableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CB7127CDDDB3001C179D /* TableViewModelType.swift */; };
@@ -21,6 +22,8 @@
 		8485BB7D27C8ED0B00D64014 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485BB7C27C8ED0B00D64014 /* MainController.swift */; };
 		8485BB8227C8ED0C00D64014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8127C8ED0C00D64014 /* Assets.xcassets */; };
 		8485BB8527C8ED0C00D64014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8485BB8327C8ED0C00D64014 /* LaunchScreen.storyboard */; };
+		84F55BE427EC1E850038C292 /* CardCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F55BE327EC1E850038C292 /* CardCellBuilder.swift */; };
+		84F55BE827EC22700038C292 /* CardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F55BE727EC22700038C292 /* CardCellModel.swift */; };
 		E2A92E921FAFD73AD55F0391 /* libPods-AlamofireProduct.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 294B52CBB18E31F9D9BCE20D /* libPods-AlamofireProduct.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,7 @@
 		0F224E4CA5C4509411533373 /* Pods-AlamofireProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireProduct.release.xcconfig"; path = "Target Support Files/Pods-AlamofireProduct/Pods-AlamofireProduct.release.xcconfig"; sourceTree = "<group>"; };
 		129AE1F34B00D0F188709269 /* Pods-AlamofireProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireProduct.debug.xcconfig"; path = "Target Support Files/Pods-AlamofireProduct/Pods-AlamofireProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		294B52CBB18E31F9D9BCE20D /* libPods-AlamofireProduct.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlamofireProduct.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		842DD32327E4524C0098D71A /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		8443065627CCD8FA001882F4 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		8443065827CD1CA2001882F4 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		8483CB7127CDDDB3001C179D /* TableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelType.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		8485BB8127C8ED0C00D64014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8485BB8427C8ED0C00D64014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8485BB8627C8ED0C00D64014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84F55BE327EC1E850038C292 /* CardCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellBuilder.swift; sourceTree = "<group>"; };
+		84F55BE727EC22700038C292 /* CardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,14 @@
 				0F224E4CA5C4509411533373 /* Pods-AlamofireProduct.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		842DD32227E451D00098D71A /* CellConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				842DD32327E4524C0098D71A /* CellConfigurator.swift */,
+			);
+			path = CellConfigurator;
 			sourceTree = "<group>";
 		};
 		8443063527CA281D001882F4 /* App */ = {
@@ -109,6 +123,8 @@
 		8443063B27CA2965001882F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84F55BE227EC1E3C0038C292 /* CardCellBuilder */,
+				842DD32227E451D00098D71A /* CellConfigurator */,
 				8443065527CCD8DA001882F4 /* Cells */,
 				8443065427CCC9DF001882F4 /* Controllers */,
 			);
@@ -137,7 +153,8 @@
 		8443065527CCD8DA001882F4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8443065627CCD8FA001882F4 /* CardCell.swift */,
+				84F55BE627EC22630038C292 /* Model */,
+				84F55BE527EC22580038C292 /* UI */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -193,6 +210,30 @@
 				8443063927CA2869001882F4 /* Sources */,
 			);
 			path = AlamofireProduct;
+			sourceTree = "<group>";
+		};
+		84F55BE227EC1E3C0038C292 /* CardCellBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				84F55BE327EC1E850038C292 /* CardCellBuilder.swift */,
+			);
+			path = CardCellBuilder;
+			sourceTree = "<group>";
+		};
+		84F55BE527EC22580038C292 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8443065627CCD8FA001882F4 /* CardCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		84F55BE627EC22630038C292 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84F55BE727EC22700038C292 /* CardCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B275DE1A36CC8A5E4496DC20 /* Frameworks */ = {
@@ -299,7 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F55BE827EC22700038C292 /* CardCellModel.swift in Sources */,
 				8483CB7427CDDE82001C179D /* TableViewCellViewModelType.swift in Sources */,
+				84F55BE427EC1E850038C292 /* CardCellBuilder.swift in Sources */,
 				8483CB7F27CE594B001C179D /* CardModel.swift in Sources */,
 				8443065727CCD8FA001882F4 /* CardCell.swift in Sources */,
 				8483CB8227CE73FE001C179D /* AlamofireNetworkRequest.swift in Sources */,
@@ -309,6 +352,7 @@
 				8443065927CD1CA2001882F4 /* TableViewModel.swift in Sources */,
 				8483CB7627CDE01A001C179D /* TableViewCellViewModel.swift in Sources */,
 				8483CB7827CDE468001C179D /* DetailController.swift in Sources */,
+				842DD32427E4524C0098D71A /* CellConfigurator.swift in Sources */,
 				8483CB7C27CDE75A001C179D /* DetailViewModel.swift in Sources */,
 				8483CB7227CDDDB3001C179D /* TableViewModelType.swift in Sources */,
 			);
