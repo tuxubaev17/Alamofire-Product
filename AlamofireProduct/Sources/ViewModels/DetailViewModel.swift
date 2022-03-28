@@ -36,6 +36,4 @@ class DetailViewModel: DetailViewModelType {
     init(card: Card) {
         self.card = card
     }
-    
-    
 }

@@ -8,13 +8,6 @@
 import UIKit
 
 protocol TableViewModelType {
-    func fetchData(completionHandler: @escaping () -> (Void))
-    
-    func filterContentForSearchText(_ searchText: String, completionHandler: @escaping () -> (Void))
-    
-    func numberOfRowsInSection() -> Int
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType?
-    func titleForCell(atIndexPath indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
-    func viewModelForSelectedRow(forIndexPath indexPath: IndexPath) -> DetailViewModelType?
+    func fetchData(completionHandler: @escaping ([Card]) -> (Void))
     func selectRow(atIndexPath indexPath: IndexPath)
 }
