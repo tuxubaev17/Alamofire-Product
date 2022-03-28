@@ -153,8 +153,8 @@
 		8443065527CCD8DA001882F4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				84F55BE627EC22630038C292 /* Model */,
 				84F55BE527EC22580038C292 /* UI */,
+				84F55BE627EC22630038C292 /* Model */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

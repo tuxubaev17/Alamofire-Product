@@ -16,12 +16,15 @@ protocol ConfigurableCell {
 protocol CellConfgurator {
     static var reuseId: String { get }
     func configure(cell: UIView)
+    static var cellClass: AnyClass { get }
 }
 
 class TableCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfgurator where CellType.DataType == DataType, CellType: UITableViewCell {
     static var reuseId: String { String(describing: CellType.self) }
     
     let item: DataType
+    
+    static var cellClass: AnyClass { return CellType.self }
     
     init(item: DataType) {
         self.item = item

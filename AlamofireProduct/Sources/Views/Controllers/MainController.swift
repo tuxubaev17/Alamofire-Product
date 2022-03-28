@@ -20,8 +20,8 @@ final class MainController: UIViewController {
 
     private var isFiltering: Bool = false
     
-    private var cardCellBuilder: CardCellBuilderProtocol?
-    private var viewModel: TableViewModelType?
+    private var cardCellBuilder: CardCellBuilderProtocol = CardCellBuilder()
+    private var viewModel: TableViewModelType = TableViewModel()
     
     var searchController = UISearchController(searchResultsController: nil)
 
@@ -44,7 +44,6 @@ final class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TableViewModel()
         
         setupHierarchy()
         setupView()
@@ -97,7 +96,7 @@ final class MainController: UIViewController {
     }
     
     private func completionEvent() {
-        viewModel?.fetchData { card in
+        viewModel.fetchData { card in
             self.cards = card
             self.tableView.reloadData()
         }
@@ -125,12 +124,14 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isFiltering {
-            guard let item: CellConfgurator = cardCellBuilder?.toCardCell(model: filteredCardsName)[indexPath.row] else { return UITableViewCell() }
+            let item: CellConfgurator = cardCellBuilder.toCardCell(model: filteredCardsName)[indexPath.row]
+            tableView.register(type(of: item).cellClass, forCellReuseIdentifier: type(of: item).reuseId)
             let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId)!
             item.configure(cell: cell)
             return cell
         } else {
-            guard let item: CellConfgurator = cardCellBuilder?.toCardCell(model: cards)[indexPath.row] else { return UITableViewCell() }
+            let item: CellConfgurator = cardCellBuilder.toCardCell(model: cards)[indexPath.row]
+            tableView.register(type(of: item).cellClass, forCellReuseIdentifier: type(of: item).reuseId)
             let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId)!
             item.configure(cell: cell)
             return cell
@@ -138,7 +139,6 @@ extension MainController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewModel = viewModel else { return }
         viewModel.selectRow(atIndexPath: indexPath)
         
         let detailVC = DetailController()
